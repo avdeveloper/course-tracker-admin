@@ -1,7 +1,65 @@
 <!doctype html>
 <html>
   <head>
+    <title>Add Courses</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
   </head>
-  <body>
+  <body id="new">
+    <header class="row-fluid">
+      <h1><a class="brand span4" href="#">Course Tracker</a></h1>
+      <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="#">New Course</a></li>
+        <li><a href="#">View All Courses</a></li>
+      </ul>
+    </header>
+    <div id="main" class="row-fluid">
+      <form class="span7">
+        <h2>Add a new course</h2>
+        <fieldset>
+          <label for="department">Department</label>
+          <input id="department" class="input-xlarge" type="text" data-bind="value: department" placeholder="Computer Science">
+        </fieldset>
+        <div>
+          <label for="initials">Initials</label>
+          <input id="initials" class="input-mini" type="text" data-bind="value: initials" maxlength="2" placeholder="CS">
+        </div>
+        <div>
+          <label for="courseNumber">Course Number</label>
+          <input id="courseNumber" class="input-small" type="number" max="10000" data-bind="value: courseNumber" placeholder="4523">
+        </div>
+        <div>
+          <label for="credits">Credits</label>
+          <input id="credits" class="input-mini" type="number" max="5" data-bind="value: credits" placeholder="3">
+        </div>
+        <label for="description">Description</label>
+        <textarea id="description" class="span12" data-bind="value: description" rows="5" ></textarea> <br>
+        <input class="btn btn-primary pull-right" type="submit" data-bind="click: saveCourse" value="Add Course">
+      </form>
+      <h2>View Courses</h2>
+      <table id="coursesTable">
+        <thead>
+          <tr>
+            <th>Course Number</th>
+            <th>Name</th>
+            <th>Credits</th>
+            <th>Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!--<td><p data-bind="text: initials + ' ' + courseNumber"></p></td>
+            <td><p data-bind="text: name"></p></td>
+            <td><p data-bind="text: credits"></p></td>
+            <td><p data-bind="text: department"></p></td>-->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.2.min.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
