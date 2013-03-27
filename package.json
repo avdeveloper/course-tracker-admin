@@ -1,0 +1,13 @@
+{
+  "name": "course-tracker-admin",
+  "description": "Use this interface to manage courses",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "connect": "2.7.3"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
+}
