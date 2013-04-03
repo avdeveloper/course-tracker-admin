@@ -9,8 +9,7 @@ $(function () {
    * ---------------------------------- */
   (function initializejQueryBindings () {
     var form = $('form'),
-        newCourseButton = $('header > button'),
-        addCourseButton = $('form > input[type=submit]');
+        newCourseButton = $('header > button');
 
     form.hide();
     newCourseButton.click(function (event) {
