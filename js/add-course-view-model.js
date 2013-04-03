@@ -32,6 +32,7 @@ function AddCourseViewModel() {
   var resetFormData = function () {
     self.courseNumber('');
     self.credits('');
+    self.name('');
     self.description('');
   };
 
