@@ -30,6 +30,8 @@ function AddCourseViewModel() {
   };
 
   var resetFormData = function () {
+    self.url('');
+    self.initials('');
     self.courseNumber('');
     self.credits('');
     self.name('');
@@ -53,6 +55,7 @@ function AddCourseViewModel() {
   /**
    * ~Public Members
    * ---------------------------------- */
+  self.url = ko.observable();
   self.department = ko.observable();
   self.initials = ko.observable();
   self.courseNumber = ko.observable();
@@ -80,5 +83,32 @@ function AddCourseViewModel() {
       error: showError
     });
   };
+
+  self.fillFormFields = function () {
+    if (self.url()) {
+      $.post('https://crepe.herokuapp.com', {
+        url: self.url(),
+        items: {
+          heading: '#center h2',
+          credits: '#center p:eq(0)',
+          description: '#center p:eq(1)'
+        }
+      }, function (data) {
+        console.log(data);
+        var heading     = /<h2>([A-Z]+)(\d+)\s([a-zA-Z\d\s]+)/.exec(data.heading),
+            initials    = heading[1] || null,
+            number      = heading[2] || null,
+            name        = heading[3] || null,
+            credits     = /(\d+).\d+/.exec(data.credits)[1] || null,
+            description = data.description.replace(/Description: |<\/?\w+\s?\/?>/g, '');
+
+        self.initials(initials);
+        self.courseNumber(number);
+        self.name(name);
+        self.credits(credits);
+        self.description(description);
+      });
+    }
+  }
 
 }

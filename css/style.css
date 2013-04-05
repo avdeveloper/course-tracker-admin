@@ -15,3 +15,7 @@ h1 {
 body#new input[type=submit] {
   display: block;
 }
+
+div#url-container {
+  width: 100%;
+}

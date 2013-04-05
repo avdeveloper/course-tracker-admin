@@ -13,9 +13,12 @@
     <div id="main" class="row-fluid">
       <form>
         <h2>Add a new course</h2>
-        <div>
+        <div id="url-container">
           <label for="url">Course Page URL</label>
-          <input id="url" type="text" placeholder="http://your-domain.edu">
+          <div class="input-append">
+            <input id="url" class="input-xlarge" type="text" data-bind="value: url" placeholder="http://your-domain.edu">
+            <button class="btn" data-bind="click: fillFormFields">Auto-Fill</button>
+          </div>
         </div>
         <div>
           <label for="department">Department</label>
