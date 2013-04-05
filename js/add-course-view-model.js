@@ -44,11 +44,11 @@ function AddCourseViewModel() {
   /**
    * ~Constructor
    * ---------------------------------- */
-  (function initialize() {
-    Parse.initialize('U9fUNVz6nQHRDZqIM3DaR9ydC3Vb6pMWhq5eyj60', 'eZ79KBnlJ3siGkndjM1LOsmcOsBhIAJXAXOd8rf1');
+  (function constructor () {
+    // TODO hide this please
+    Parse.initialize('U9fUNVz6nQHRDZqIM3DaR9ydC3Vb6pMWhq5eyj60', 'eZ79KBnlJ3siGkndjM1LOsmcOsBhIAJXAXOd8rf1'); // TODO place these values in the environment
     CourseQuery.find(loadCourses);
   })();
-
 
   /**
    * ~Public Members
@@ -69,7 +69,7 @@ function AddCourseViewModel() {
       name: self.name(),
       description: self.description()
     };
-  }, this);
+  }, self);
 
   /*
    * ~Public Methods
